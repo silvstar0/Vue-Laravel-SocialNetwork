@@ -9,10 +9,9 @@
                                     {{ $user->name }}'s Profile.
                               </p>
                         </div>
-                        
                         <div class="panel-body">
                               <center>
-                                    <img src="{{ $user->avatar }}" width="140px" height="140px" style="border-radius: 50%;" alt="">
+                                    <img src="{{ Storage::url($user->avatar) }}" width="140px" height="140px" style="border-radius: 50%;" alt="">
                               </center>
                               <br>  
                               <p class="text-center">
@@ -26,14 +25,6 @@
                               </p>
                         </div>
                   </div>
-                  
-                  @if(Auth::id() !== $user->id)
-                        <div class="panel panel-default">
-                              <div class="panel-body">
-                                    <friend :profile_user_id="{{ $user->id }}"></friend>
-                              </div>
-                        </div>
-                  @endif
 
                   <div class="panel panel-default">
                         <div class="panel-heading">

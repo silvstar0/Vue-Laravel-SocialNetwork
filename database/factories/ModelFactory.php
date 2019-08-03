@@ -13,21 +13,11 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
-    $name = $faker->name;
+
     return [
-        'name' => $name,
+        'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'slug' => str_slug($name),
-        'gender' => 0,
-        'avatar' =>  'public/defaults/avatars/female.png',
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
-    ];
-});
-
-$factory->define(App\Profile::class, function (Faker\Generator $faker) {
-    return [
-        'location' => $faker->city,
-        'about' => $faker->paragraph(4)
     ];
 });

@@ -7,17 +7,14 @@
 
 require('./bootstrap');
 
-Vue.component('init', require('./components/Init.vue'));
-Vue.component('feed', require('./components/Feed.vue'));
-Vue.component('post', require('./components/Post.vue'));
-Vue.component('search', require('./components/Search.vue'));
-Vue.component('friend', require('./components/Friend.vue'));
-Vue.component('unread', require('./components/UnreadNots.vue'));
-Vue.component('notification', require('./components/Notification.vue'));
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the body of the page. From here, you may begin adding components to
+ * the application, or feel free to tweak this setup for your needs.
+ */
 
-import { store } from './store'
+Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app',
-    store
+    el: '#app'
 });
