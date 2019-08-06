@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Storage;
 use App\Traits\Friendable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,6 +36,12 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post')
+                    ->orderBy('created_at');
+    }
+
+    public function getAvatarAttribute($avatar)
+    {
+        return asset(Storage::url($avatar));
     }
 }
