@@ -23,6 +23,7 @@
 <body>
     <div id="app">
         <init></init>
+        
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -81,7 +82,9 @@
                 </div>
             </div>
         </nav>
-
+        @if(Auth::check())
+            <search></search>
+        @endif
         @yield('content')
         @if(Auth::check())
             <notification :id="{{ Auth::id() }}"></notification>
